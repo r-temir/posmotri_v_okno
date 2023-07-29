@@ -51,9 +51,10 @@ ol {
 .content__details {
   display: flex;
   flex-direction: column;
+  align-items: start;
   gap: 26px;
-  width: 100%;
-  height: 100%;
+  min-width: 399px;
+  min-height: 534px;
 }
 
 /*контейнер видео*/
@@ -69,6 +70,9 @@ ol {
   object-fit: cover;
   object-position: center;
 }
+/* по рекомендации 'можно лучше' пытался передать размеры родителю, но 
+при этом у меня ломаются размеры самого видео, не придумал 
+как это победить, поэтому пока оставил как есть. */
 
 /*-------------------------------- карточки --------------------------------*/
 .content__video-card {
@@ -83,13 +87,12 @@ ol {
 .content__video-card-thumbnail {
   min-width: 194px;
   block-size: 103px;
-  object-fit: contain;
-
+  object-fit: cover;
 }
 
 .content__video-card-title {
   color: #fff;
-  font-family: 'Oswald', Arial, Helvetica, sans-serif;
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 700;
@@ -139,7 +142,7 @@ ol {
 /*заголовок*/
 .title {
   color: #fff;
-  font-family: 'Oswald', Arial, Helvetica, sans-serif;
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
   font-size: 75px;
   font-style: normal;
   font-weight: 700;
@@ -178,7 +181,6 @@ ol {
   gap: 5px;
   border: none;
   margin-bottom: 2px;
-
 }
 
 .search-form__label {
@@ -189,8 +191,8 @@ ol {
 }
 
 .search-form__label-text {
-  color: #FFF;
-  font-family: 'Fira Sans Condensed', Arial, Helvetica, sans-serif;
+  color: #fff;
+  font-family: "Fira Sans Condensed", Arial, Helvetica, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -198,8 +200,8 @@ ol {
 }
 
 .search-form__fieldset-title {
-  color: #FFF;
-  font-family: 'Fira Sans Condensed', Arial, Helvetica, sans-serif;
+  color: #fff;
+  font-family: "Fira Sans Condensed", Arial, Helvetica, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -215,7 +217,7 @@ ol {
   appearance: none;
   min-inline-size: 225px;
   color: currentColor;
-  font-family: 'Fira Sans Condensed', Arial, Helvetica, sans-serif;
+  font-family: "Fira Sans Condensed", Arial, Helvetica, sans-serif;
   font-size: 18px;
   line-height: 22px;
   font-style: normal;
@@ -229,7 +231,6 @@ ol {
 
 .search-form__label::placeholder {
   color: rgba(255, 255, 255, 0.7);
-
 }
 
 .search-form__textfield:focus {
@@ -336,3 +337,8 @@ ol {
   clip-path: inset(50%);
   white-space: nowrap;
 }
+
+/*в верстке есть расхождения с макетом в .error__title, 
+поскольку в заготовку не добавлен шрифт Oswald 400 
+(либо забыли добавить, либо это ошибка в дизайне), я не стал вносить 
+изменения, так как наставник сказал оставить как есть*/
