@@ -10,8 +10,8 @@ html {
 
 .page {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
@@ -41,20 +41,14 @@ ol {
 }
 
 .content {
-  display: grid;
-  grid-template-columns:auto;
+  display: flex;
   align-items: end;
-  /*margin: 133px auto 0px;*/
   gap: 30px;
   max-inline-size: 1140px;
 }
 
-.result {
-  grid-column-start: 1;
-}
 /* блок справа */
 .content__details {
-  grid-column-start: 2;
   display: flex;
   flex-direction: column;
   gap: 26px;
@@ -82,23 +76,24 @@ ol {
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
+  box-sizing: border-box;
 }
 
 /*обложка карточки*/
 .content__video-card-thumbnail {
-  inline-size: 194px;
+  min-width: 194px;
   block-size: 103px;
-  object-fit: cover;
-  object-position: center;
+  object-fit: contain;
+
 }
 
 .content__video-card-title {
   color: #fff;
-  font-family: Oswald, sans-serif;
+  font-family: 'Oswald', Arial, Helvetica, sans-serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 700;
-  line-height: 30px;
+  line-height: 100%;
   text-transform: uppercase;
   margin-bottom: 6px;
 }
@@ -112,13 +107,14 @@ ol {
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
-  line-height: 16.2px;
+  line-height: 90%;
 }
 
 /*-------------------------------- список карточек ---------------------------------*/
 .content__list {
   max-block-size: 298px;
-  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
   position: relative;
 }
 
@@ -128,7 +124,7 @@ ol {
 }
 
 .content__list .content__list-item:not(:last-of-type) {
-  margin-bottom: 30px;
+  margin-bottom: 33px;
 }
 
 /*ссылка карточек*/
@@ -143,7 +139,7 @@ ol {
 /*заголовок*/
 .title {
   color: #fff;
-  font-family: Oswald;
+  font-family: 'Oswald', Arial, Helvetica, sans-serif;
   font-size: 75px;
   font-style: normal;
   font-weight: 700;
@@ -154,12 +150,6 @@ ol {
 /*акцент заголовка*/
 .content__accent {
   color: #545050;
-  font-family: Oswald;
-  font-size: 75px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 94%; /* 70.5px */
-  text-transform: uppercase;
 }
 
 /*-------------------------------- состояния карточек ------------------------------*/
@@ -179,22 +169,28 @@ ol {
 .search-form {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
 }
 
 .search-form__fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   border: none;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
+
 }
 
 .search-form__label {
   display: flex;
+  align-items: center;
   width: fit-content;
   cursor: pointer;
 }
 
 .search-form__label-text {
-  color: #fff;
+  color: #FFF;
+  font-family: 'Fira Sans Condensed', Arial, Helvetica, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -202,18 +198,12 @@ ol {
 }
 
 .search-form__fieldset-title {
-  color: #fff;
+  color: #FFF;
+  font-family: 'Fira Sans Condensed', Arial, Helvetica, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin-bottom: 5px;
-}
-
-.search-form__label {
-  display: flex;
-  width: fit-content;
-  cursor: pointer;
 }
 
 .search-form__label:has(:focus-visible) {
@@ -224,8 +214,13 @@ ol {
 .search-form__textfield {
   appearance: none;
   min-inline-size: 225px;
-  font-size: 16px;
   color: currentColor;
+  font-family: 'Fira Sans Condensed', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
   background-color: transparent;
   border: none;
   border-block-start: 1px solid #fff;
@@ -234,9 +229,7 @@ ol {
 
 .search-form__label::placeholder {
   color: rgba(255, 255, 255, 0.7);
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+
 }
 
 .search-form__textfield:focus {
@@ -254,23 +247,28 @@ ol {
 /*--------------------------------- чекбоксы --------------------------------------*/
 .search-form__checkbox-list {
   display: flex;
-  gap: 15px;
+  gap: 20px;
+  margin-bottom: 3px;
 }
 
 .search-form__pseudo-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: transparent;
   outline: 1px solid #fff;
   outline-offset: 1px;
-  width: 19px;
-  height: 19px;
-  margin-right: 4px;
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  margin-bottom: 1px;
 }
 
 .search-form__checkbox:checked ~ .search-form__pseudo-checkbox::before {
   content: "";
   background-color: #fff;
-  height: 17px;
-  width: 17px;
+  height: 13px;
+  width: 13px;
   margin: 1px auto;
   display: block;
 }
@@ -282,7 +280,7 @@ ol {
 
 /*---------------------------------- кнопки -------------------------------------*/
 .button {
-  border: 1px solid #fff;
+  border: 1px solid currentColor;
   background-color: transparent;
   color: #fff;
   text-align: center;
@@ -316,16 +314,16 @@ ol {
 
 .search-form__submit-button {
   padding: 6px 73.5px;
-  margin-bottom: 2px;
 }
 
 .more-button {
-  width: 99%;
-  margin: 0 2px 2px 2px;
+  width: 100%;
 }
 
 .content__card-link_current {
   background-color: #545050;
+  width: 100%;
+  height: 100%;
 }
 
 /*-------------------------------- закрывашка ---------------------------------*/
